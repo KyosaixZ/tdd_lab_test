@@ -8,12 +8,11 @@ def read_root():
     return {"Hello": "Mangkorn"}
 
 @app.get("/callname/{name}")
-def read_name(name: str):
+def read_name(name: str = None):
     return {"hello": name}
 
 @app.post("/callname")
-def write_name(data: dict):
-    name = data.get("name")
+def write_name(name: str = None):
     return {"hello": name}
 
 handler = Mangum(app)
