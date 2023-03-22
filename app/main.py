@@ -16,7 +16,8 @@ def read_name(name: str = None):
     return {"hello": name}
 
 @app.post("/callname")
-def write_name(name: str = None):
+def write_name(data: dict):
+    name = data.get("name")
     return {"hello": name}
 
 handler = Mangum(app)
